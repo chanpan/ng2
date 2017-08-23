@@ -1,0 +1,16 @@
+
+<hr>
+<div *ngIf="show">
+    <div class="row">
+        <span class="col-md-3" *ngFor="let fields of objezfield" > 
+                {{fields.label}}
+            <!-- <span [innerHtml]="fields.label"></span>
+            <span [innerHtml]="fields.input"></span>  -->
+        </span> 
+    </div>
+</div> 
+ 
+         
+<br>
+<hr>  
+<button (click)='newWindow()' class="btn btn-primary">New Window</button>

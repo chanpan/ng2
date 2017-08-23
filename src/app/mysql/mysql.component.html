@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>{{title}}</h1>
+  <div class="table table-responsive">
+    <table class="table table-bordered table-responsive" *ngIf="show">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Password</th>
+          <th>ชื่อ</th>
+          <th>นามสกุล</th>
+          <th>เบอร์โทร</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input id="frmID" type="hidden" style="width:50px;" [(ngModel)]="frmUser.id"><input class="form-control" type="text"
+              [(ngModel)]="frmUser.username"></td>
+          <td><input class="form-control" type="text" [(ngModel)]="frmUser.password"></td>
+          <td><input class="form-control" type="text" [(ngModel)]="frmUser.fname"></td>
+          <td><input class="form-control" type="text" [(ngModel)]="frmUser.lname"></td>
+          <td><input class="form-control" type="text" [(ngModel)]="frmUser.tel"></td>
+          <td><button class="btn btn-primary" (click)="CheckInsertOrUpdate()">Save</button></td>
+        </tr>
+        <tr *ngFor="let u of users">
+          <td>{{u.username}}</td>
+          <td>{{u.password}}</td>
+          <td>{{u.fname}}</td>
+          <td>{{u.lname}}</td>
+          <td>{{u.tel}}</td>
+          <td>
+            <button (click)="FormUpdate(u)" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button (click)="Delete(u.id)" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
