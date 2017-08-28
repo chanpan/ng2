@@ -57,6 +57,7 @@ export class HomeComponent implements OnInit {
                   }); 
                   console.log(this.objezfield[i]);
                   this.show = true;
+                  
                   if(this.objezfield[i].type == 51){
                         let names = BaseHtml.getInputName(field);
                         options["class"]="form-group";
