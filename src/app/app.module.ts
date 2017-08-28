@@ -8,7 +8,7 @@ import { MysqlComponent } from './mysql/mysql.component';
 import { HomeComponent } from './home/home.component';
 
 //routing module
-import { AppRoutingModule } from './routing/app-routing.module';
+//import { AppRoutingModule } from './routing/app-routing.module';
 import { WidgetsComponent } from './widgets/widgets.component';
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { WidgetsComponent } from './widgets/widgets.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    //AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,9 +14,9 @@ export class MysqlService {
   constructor() { }
   DBConnected() {
     this.connection = mysql.createConnection({
-      host: 'localhost',
+      host: '127.0.0.1',
       user: 'root',
-      password: '',
+      password: 'Chanpan07',
       database: 'nhis'
     });
     

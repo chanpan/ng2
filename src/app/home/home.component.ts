@@ -7,13 +7,15 @@ import {BaseHtml} from '../shared/Classes/BaseHtml';
 @Component({
   selector: 'app-home',
   template: `
-      <div *ngIf="show">
-        <div class="row">
-            <div *ngFor="let fields of objezfield" >
-               <div [innerHtml]="fields.input"></div> 
-            </div> 
-        </div>
-      </div> 
+      <div class='container'>
+        <div *ngIf="show">
+          <div class="row">
+              <div *ngFor="let fields of objezfield" >
+                <div [innerHtml]="fields.input"></div> 
+              </div> 
+          </div>
+        </div> 
+      </div>
   `,
   styleUrls: ['./home.component.css'],
   providers:[MysqlService]
@@ -33,7 +35,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private sanitizer: DomSanitizer, private mysql:MysqlService) { 
       this.ConnectDB();
-      this.mysql.FindAll("ezform_fields","where ezf_id=1503397227054450700").subscribe(
+      this.mysql.FindAll("ezform_fields","where ezf_id=1500524459015751100").subscribe(
       (fields)=>{
          
             for(let i in fields){
@@ -53,7 +55,7 @@ export class HomeComponent implements OnInit {
                     ezf_field_lenght:field.ezf_field_lenght,
                    
                   }); 
-        
+                  console.log(this.objezfield[i]);
                   this.show = true;
                   if(this.objezfield[i].type == 51){
                         let names = BaseHtml.getInputName(field);
@@ -62,7 +64,7 @@ export class HomeComponent implements OnInit {
                         //this.objezfield[i].label = sanitizer.bypassSecurityTrustHtml() ;
                         this.objezfield[i].input = sanitizer.bypassSecurityTrustHtml(`
                             <div class='col-md-${field.ezf_field_lenght}' item-id='${field.ezf_field_id}'>
-                              <div class='form-control'>
+                              <div>
                                  ${HtmlHelper.label(field.ezf_field_label)}
                                  ${HtmlHelper.textInput(names,value,options)}
                               </div>
